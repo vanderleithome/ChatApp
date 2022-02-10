@@ -16,12 +16,20 @@ class LoginViewController: UIViewController {
     
     var auth: Auth!
     
+    var handler: AuthStateDidChangeListenerHandle!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
         auth = Auth.auth()
+        
+        handler = auth.addStateDidChangeListener { autentitation, user in
+            if user != nil {
+                self.performSegue(withIdentifier: "segueAutomaticLogin", sender: nil)
+            }
+        }
     }
     
     @IBAction func loginUser(_ sender: Any) {
@@ -31,7 +39,7 @@ class LoginViewController: UIViewController {
                 
                 auth.signIn(withEmail: email, password: password) { user, error in
                     if error == nil {
-                        if let userLoggedIn = user {    
+                        if let userLoggedIn = user {
                             print("User logged in successfull - \(String(describing: userLoggedIn.user.email))")
                         }
                     } else {
@@ -52,6 +60,14 @@ class LoginViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        //auth.removeStateDidChangeListener(handler)
+    }
+    
+    @IBAction func unwindToLogin(_ unwindSegue: UIStoryboardSegue) {
+        let sourceViewController = unwindSegue.source
+        // Use data from the view controller which initiated the unwind segue
+    }
 
     /*
     // MARK: - Navigation

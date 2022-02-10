@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 
 class SignUpViewController: UIViewController {
     
@@ -18,14 +19,32 @@ class SignUpViewController: UIViewController {
     
     var auth: Auth!
     
+    var firestore: Firestore!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+        
+        auth = Auth.auth()
+        
+        firestore = Firestore.firestore()
+    }
+    
     @IBAction func createUser(_ sender: Any) {
         
         if let name = nameField.text {
             if let email = emailField.text {
                 if let password = passwordField.text {
                     
-                    auth.createUser(withEmail: email, password: password) { user, error in
+                    auth.createUser(withEmail: email, password: password) { dataResult, error in
+                        
                         if error == nil {
+                            
+                            if let idUser = dataResult?.user.uid {
+                                self.firestore.collection("users").document(idUser).setData([ "name": name, "email": email ])
+                            }
+                            
                             print("User created")
                         } else {
                             print("Error while creating user")
@@ -42,14 +61,6 @@ class SignUpViewController: UIViewController {
             print("Type your name")
         }
         
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        
-        auth = Auth.auth()
     }
     
     override func viewWillAppear(_ animated: Bool) {

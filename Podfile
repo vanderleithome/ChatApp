@@ -10,5 +10,6 @@ target 'ChatApp' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
+  pod 'FirebaseUI/Storage'
 
 end
