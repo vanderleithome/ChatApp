@@ -11,6 +11,9 @@
 		995139CF27AE80A100A0571A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995139CE27AE80A100A0571A /* SettingsViewController.swift */; };
 		995986E327AD2D1400F1B01C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995986E227AD2D1400F1B01C /* LoginViewController.swift */; };
 		995986E527AD2D2500F1B01C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995986E427AD2D2500F1B01C /* SignUpViewController.swift */; };
+		9980FC6027B7E59500041C27 /* NewContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9980FC5F27B7E59500041C27 /* NewContactViewController.swift */; };
+		99BABFB727B6DE6E0073D288 /* ContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BABFB627B6DE6E0073D288 /* ContactsTableViewCell.swift */; };
+		99BABFB927B6DF8E0073D288 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BABFB827B6DF8E0073D288 /* ContactsViewController.swift */; };
 		99E5B7CA27ABD75F00189571 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E5B7C927ABD75F00189571 /* AppDelegate.swift */; };
 		99E5B7CC27ABD75F00189571 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E5B7CB27ABD75F00189571 /* SceneDelegate.swift */; };
 		99E5B7D127ABD75F00189571 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99E5B7CF27ABD75F00189571 /* Main.storyboard */; };
@@ -25,6 +28,9 @@
 		995139CE27AE80A100A0571A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		995986E227AD2D1400F1B01C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		995986E427AD2D2500F1B01C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		9980FC5F27B7E59500041C27 /* NewContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewContactViewController.swift; sourceTree = "<group>"; };
+		99BABFB627B6DE6E0073D288 /* ContactsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewCell.swift; sourceTree = "<group>"; };
+		99BABFB827B6DF8E0073D288 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		99E5B7C627ABD75F00189571 /* ChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99E5B7C927ABD75F00189571 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99E5B7CB27ABD75F00189571 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				995139CE27AE80A100A0571A /* SettingsViewController.swift */,
+				99BABFB827B6DF8E0073D288 /* ContactsViewController.swift */,
 			);
 			path = Tabs;
 			sourceTree = "<group>";
@@ -71,6 +78,7 @@
 				995139CD27AE808E00A0571A /* Tabs */,
 				995986E227AD2D1400F1B01C /* LoginViewController.swift */,
 				995986E427AD2D2500F1B01C /* SignUpViewController.swift */,
+				9980FC5F27B7E59500041C27 /* NewContactViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -80,6 +88,14 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		99BABFB527B6DE150073D288 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				99BABFB627B6DE6E0073D288 /* ContactsTableViewCell.swift */,
+			);
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 		99E5B7BD27ABD75F00189571 = {
@@ -103,6 +119,7 @@
 		99E5B7C827ABD75F00189571 /* ChatApp */ = {
 			isa = PBXGroup;
 			children = (
+				99BABFB527B6DE150073D288 /* TableViewCell */,
 				995986E127AD2CDA00F1B01C /* Model */,
 				995986E027AD2CCB00F1B01C /* ViewController */,
 				99E5B7C927ABD75F00189571 /* AppDelegate.swift */,
@@ -241,9 +258,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				995986E327AD2D1400F1B01C /* LoginViewController.swift in Sources */,
+				99BABFB927B6DF8E0073D288 /* ContactsViewController.swift in Sources */,
 				99E5B7CA27ABD75F00189571 /* AppDelegate.swift in Sources */,
+				99BABFB727B6DE6E0073D288 /* ContactsTableViewCell.swift in Sources */,
 				995986E527AD2D2500F1B01C /* SignUpViewController.swift in Sources */,
 				995139CF27AE80A100A0571A /* SettingsViewController.swift in Sources */,
+				9980FC6027B7E59500041C27 /* NewContactViewController.swift in Sources */,
 				99E5B7CC27ABD75F00189571 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

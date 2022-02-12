@@ -42,7 +42,7 @@ class SignUpViewController: UIViewController {
                         if error == nil {
                             
                             if let idUser = dataResult?.user.uid {
-                                self.firestore.collection("users").document(idUser).setData([ "name": name, "email": email ])
+                                self.firestore.collection("users").document(idUser).setData([ "name": name, "email": email, "id": idUser ])
                             }
                             
                             print("User created")
