@@ -142,5 +142,12 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
         
         self.performSegue(withIdentifier: "startChat", sender: contact)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "startChat" {
+            let targetView = segue.destination as! ChatMessageViewController
+            targetView.contact = sender as? Dictionary
+        }
+    }
 
 }
