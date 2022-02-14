@@ -40,10 +40,35 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == "" {
+            getContacts()
+        }
         
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let textTyped = searchBar.text
+        
+        if textTyped != "" {
+            searchContacts(pText: textTyped!)
+        }
+    }
+    
+    func searchContacts(pText: String) {
+        
+        let filterList: [Dictionary<String, Any>] = self.contactsList
+        
+        self.contactsList.removeAll()
+        
+        for item in filterList {
+            if let name = item["name"] as? String {
+                if name.lowercased().contains(pText.lowercased()) {
+                    self.contactsList.append(item)
+                }
+            }
+        }
+        
+        self.contactsTableView.reloadData()
         
     }
     
@@ -85,9 +110,11 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellContacts", for: indexPath) as! ContactsTableViewCell
         
+        cell.contactImage.isHidden = false
         if self.contactsList.count == 0 {
             cell.contactName.text = "You have no contacts"
             cell.contactMail.text = ""
+            cell.contactImage.isHidden = true
             return cell
         }
         
@@ -104,6 +131,16 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.contactsTableView.deselectRow(at: indexPath, animated: true)
+        
+        let index = indexPath.row
+        
+        let contact = self.contactsList[index]
+        
+        self.performSegue(withIdentifier: "startChat", sender: contact)
     }
 
 }
