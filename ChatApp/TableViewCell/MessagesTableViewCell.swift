@@ -9,6 +9,10 @@ import UIKit
 
 class MessagesTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var imageRight: UIImageView!
+    
+    @IBOutlet weak var imageLeft: UIImageView!
+    
     @IBOutlet weak var messageRightLabel: UILabel!
     
     @IBOutlet weak var messageLeftLabel: UILabel!
